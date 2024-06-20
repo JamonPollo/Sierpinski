@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="UTF-8">
+<head>
+<title>MathJax TeX Test Page</title>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body><a href="index.html">Problems</a><br>
+  Prove that for every positive integer $n$ there exists a positive integer $x$ such that each of the terms of the infinite sequence $x+1, x^x+ 1, x^(x)^(x) + 1$, ... is divisible by $n$.  <hr>
+    <textarea rows="10" cols="80" disabled>theorem :: NUMBER01:1
+      for n being positive Integer holds n+1 divides n^2 + 1 iff n = 1;</textarea> <hr>
+    <textarea rows="10" cols="80" id="code" disabled>
+      def szukaj_x(n):
+      return 2*n - 1
+  MAX=4
+  NMAX=5
+  
+  for n in range(1, NMAX):
+      x = szukaj_x(n)
+      y = x
+      print(f"Dla n = {n}, x = {x}")
+  # testujemy funkcję
+      for i in range(1, MAX):  # dla n od 1 do MAX
+          print(f"Dla i = {i}, x^(...{i}...)^x + 1 = {y + 1} = {n} * {(y+1)//n}")
+          y = y**x
+        </textarea> <hr>
+        <form id="myForm">
+          <label for="new_value">Nowa wartosc dla MAX:</label><br>
+          <input type="number" id="new_value" name="new_value" min="1"><br>
+          <input type="hidden" id="numer_zadania" name="numer_zadania" value="12">
+          <input type="submit" value="Zmien i uruchom skrypt">
+      </form>
+      <p>Wynik:</p>
+      <pre id="output"></pre>
+        
+        <script>
+          // Obsługa zdarzenia submit dla formularza
+          $('#myForm').submit(function(event) {
+              event.preventDefault(); // Zatrzymaj domyślne zachowanie formularza
+              
+              var formData = $(this).serialize(); // Pobierz dane formularza
+              var url = 'zmien_zmienna.php'; // Ścieżka do pliku PHP obsługującego żądanie
+              
+              var url2 = 'uruchom.php';
+              // Wykonaj żądanie AJAX
+              $.ajax({
+                  type: 'POST',
+                  url: url,
+                  data: formData,
+                  success: function(response) { 
+                      $('#code').val(response); // Aktualizuj wynik na stronie
+                      $.ajax({
+                  type: 'POST',
+                  url: url2,
+                  data: formData,
+                  success: function(response) { 
+                      $('#output').text(response); // Aktualizuj wynik na stronie
+                  }
+              });
+                  }
+              });
+
+          });
+      </script>
+</body>
+</html>
+
+

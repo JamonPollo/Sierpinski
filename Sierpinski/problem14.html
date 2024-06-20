@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="UTF-8">
+<head>
+<title>MathJax TeX Test Page</title>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body><a href="index.html">Problems</a><br>
+  Prove that for positive integer n we have $((n+1)^n - 1)/(n^2)$ <hr>
+    <textarea rows="10" cols="80" disabled>theorem :: NUMBER01:1
+      for n being positive Integer holds n+1 divides n^2 + 1 iff n = 1;</textarea> <hr>
+    <textarea rows="10" cols="80" id="code" disabled>
+      def oblicz_wyrazenie(n):
+
+      k=((n+1)**n - 1)
+      if k % n**2 == 0:
+          print(f"({n}+1)^{n} - 1 = {k} = {k // (n**2)} * ({n}^{2})")
+      else:
+          print(f"(({n}+1)^{n} - 1) / ({n}^2) = {k / (n**2)}")
+  
+  # testujemy funkcję
+  for i in range(1, 11):  # dla n od 1 do 10
+      print(f"Dla n = {i}:")
+      oblicz_wyrazenie(i)
+        </textarea> <hr>
+        <form id="myForm">
+          <label for="new_value">Nowa wartosc dla MAX:</label><br>
+          <input type="number" id="new_value" name="new_value" min="1"><br>
+          <input type="hidden" id="numer_zadania" name="numer_zadania" value="14">
+          <input type="submit" value="Zmien i uruchom skrypt">
+      </form>
+      <p>Wynik:</p>
+      <pre id="output"></pre>
+        
+        <script>
+          // Obsługa zdarzenia submit dla formularza
+          $('#myForm').submit(function(event) {
+              event.preventDefault(); // Zatrzymaj domyślne zachowanie formularza
+              
+              var formData = $(this).serialize(); // Pobierz dane formularza
+              var url = 'zmien_zmienna.php'; // Ścieżka do pliku PHP obsługującego żądanie
+              
+              var url2 = 'uruchom.php';
+              // Wykonaj żądanie AJAX
+              $.ajax({
+                  type: 'POST',
+                  url: url,
+                  data: formData,
+                  success: function(response) { 
+                      $('#code').val(response); // Aktualizuj wynik na stronie
+                      $.ajax({
+                  type: 'POST',
+                  url: url2,
+                  data: formData,
+                  success: function(response) { 
+                      $('#output').text(response); // Aktualizuj wynik na stronie
+                  }
+              });
+                  }
+              });
+
+          });
+      </script>
+</body>
+</html>
+
+

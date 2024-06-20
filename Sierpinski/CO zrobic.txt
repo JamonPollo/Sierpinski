@@ -1,0 +1,20 @@
+1.W kazdych problemach dodatd utf-8
+2.w kazdym pliku py dodac kodowanie utf8 jak w py8
+3.Dodac $ do formul w problemach (mathjax)
+4.Dodac maxy w progrmach z zakresem
+---------------------------------------------------
+py5 cos nie działa
+
+5. dodac w kazdym problemie jak w problemie 1
+var formData = $('#myForm').serialize(); // Pobierz dane formularza
+            var url = 'zmien_zmienna.php'; // Ścieżka do pliku PHP obsługującego żądanie
+
+            $.ajax({
+                  type: 'POST',
+                  url: url,
+                  data: formData,
+                  success: function(response) { 
+                      $('#code').val(response);
+                   }}); // Aktualizuj wynik na stronie
+6.W plikach py trzeba przepatrzec spacje, oraz w html dodac okienka formularza . Pozmieniac new_value na MAX_value i jak potrzebne jaksies dodatkowe maxy to pododawac.
+wywalic z texarea i dodac skrypt jak w prob1
