@@ -12,23 +12,10 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body><a href="index.html">Problems</a><br>
-  Prove that for every positive integer $n$ there exists a positive integer $x$ such that each of the terms of the infinite sequence $x+1, x^x+ 1, x^(x)^(x) + 1$, ... is divisible by $n$.  <hr>
+  Prove that for every positive integer $n$ there exists a positive integer $x$ such that each of the terms of the infinite sequence $x+1, x^{x+ 1}, x^{x^x} + 1$, ... is divisible by $n$.  <hr>
     <textarea rows="10" cols="80" disabled>theorem :: NUMBER01:1
       for n being positive Integer holds n+1 divides n^2 + 1 iff n = 1;</textarea> <hr>
     <textarea rows="10" cols="80" id="code" disabled>
-      def szukaj_x(n):
-      return 2*n - 1
-  MAX=4
-  NMAX=5
-  
-  for n in range(1, NMAX):
-      x = szukaj_x(n)
-      y = x
-      print(f"Dla n = {n}, x = {x}")
-  # testujemy funkcję
-      for i in range(1, MAX):  # dla n od 1 do MAX
-          print(f"Dla i = {i}, x^(...{i}...)^x + 1 = {y + 1} = {n} * {(y+1)//n}")
-          y = y**x
         </textarea> <hr>
         <form id="myForm">
           <label for="new_value">Nowa wartosc dla MAX:</label><br>
@@ -40,6 +27,16 @@
       <pre id="output"></pre>
         
         <script>
+           var formData = $('#myForm').serialize(); // Pobierz dane formularza
+            var url = 'zmien_zmienna.php'; // Ścieżka do pliku PHP obsługującego żądanie
+
+            $.ajax({
+                  type: 'POST',
+                  url: url,
+                  data: formData,
+                  success: function(response) { 
+                      $('#code').val(response);
+                   }}); // Ładuje plik py od razu po włączeniu strony
           // Obsługa zdarzenia submit dla formularza
           $('#myForm').submit(function(event) {
               event.preventDefault(); // Zatrzymaj domyślne zachowanie formularza

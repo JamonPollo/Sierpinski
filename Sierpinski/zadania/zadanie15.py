@@ -7,4 +7,3 @@ def oblicz_wyrazenie(n):
 # testujemy funkcję
 for i in range(1, 11):  # dla n od 1 do 10
     print(f"n = {i}, wartość wyrażenia = {oblicz_wyrazenie(i)}")
-#tak samo jak 14

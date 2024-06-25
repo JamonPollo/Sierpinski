@@ -13,4 +13,3 @@ while m < MAX:
     if oblicz_wyrazenie(a, n):
         m = m+1
         print(f"Dla a = {a}, n = {n}: a^n + 1 = {a**n +1} = {n} * {(a**n + 1) // n}")
-

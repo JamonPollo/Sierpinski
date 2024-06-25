@@ -29,7 +29,3 @@ def liczby_pierwsze(mp):
                 print(f"Dla liczby pierwszej {p}: 2^{p} + 1 = {2**(p)+1} = {p} * {(2**(p) + 1)//(p)}")
 MAXP = 10
 liczby_pierwsze(MAXP)
-
-
-
-

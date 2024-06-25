@@ -11,17 +11,3 @@ def check_numbers(n):
 
  # Sprawdza dla pierwszych 20 nieujemnych liczb całkowitych k
 check_numbers(2)
-
-
-"""
-def check_numbers(n):
-    for i in range(n+1):
-        number = (2**(2**(6*i+2)) + 3) / 19
-        if number.is_integer():
-            print(f"Dla k = {i}, wartość wyrażenia jest liczbą całkowitą: {number}")
-        else:
-            print(f"Dla k = {i}, wartość wyrażenia nie jest liczbą całkowitą: {number}")
-
- # Sprawdza dla pierwszych 20 nieujemnych liczb całkowitych k
-check_numbers(20)
-"""

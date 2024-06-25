@@ -12,18 +12,10 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body><a href="index.html">Problems</a><br>
-  Prove that for positive integer $n$ we have $169/3^(3*n+3) - 26n -27$ <hr>
+  Prove that for positive integer $n$ we have $169/3^{3*n+3} - 26n -27$ <hr>
     <textarea rows="10" cols="80" disabled>theorem :: NUMBER01:1
       for n being positive Integer holds n+1 divides n^2 + 1 iff n = 1;</textarea> <hr>
     <textarea rows="10" cols="80" id="code" disabled>
-      def check_number(n):
-
-      number = (3**(3*n+3) - 26*n - 27)
-      if number % 169 == 0:
-          print(f"Dla n = {n}, wartość wyrażenia jest liczbą całkowitą: {number} = 169 * {number // 169}")
-
-check_number(0)
-
         </textarea> <hr>
         <form id="myForm">
           <label for="new_value">Nowa wartosc dla MAX:</label><br>
@@ -35,6 +27,16 @@ check_number(0)
       <pre id="output"></pre>
         
         <script>
+           var formData = $('#myForm').serialize(); // Pobierz dane formularza
+            var url = 'zmien_zmienna.php'; // Ścieżka do pliku PHP obsługującego żądanie
+
+            $.ajax({
+                  type: 'POST',
+                  url: url,
+                  data: formData,
+                  success: function(response) { 
+                      $('#code').val(response);
+                   }}); // Ładuje plik py od razu po włączeniu strony
           // Obsługa zdarzenia submit dla formularza
           $('#myForm').submit(function(event) {
               event.preventDefault(); // Zatrzymaj domyślne zachowanie formularza

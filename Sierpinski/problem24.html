@@ -17,22 +17,6 @@
     <textarea rows="10" cols="80" disabled>theorem :: NUMBER01:1
       for n being positive Integer holds n+1 divides n^2 + 1 iff n = 1;</textarea> <hr>
     <textarea rows="10" cols="80" id="code" disabled>
-      def znajdz_x_y(n):
-      x = n + 1
-      y = x * x  # y = (n + 1) * (n + 1)
-  
-      if y**y % x**x == 0:  # Sprawdzamy, czy (y^y) / (x^x) jest liczbą całkowitą
-          return x, y
-      else:
-          return None
-  
-  n = 5  # Wybieramy dowolną dodatnią liczbę całkowitą
-  result = znajdz_x_y(n)
-  if result is not None:
-      print(f"Dla n = {n}, znalezione x i y to: x = {result[0]}, y = {result[1]}")
-  else:
-      print(f"Dla n = {n} nie znaleziono takich x i y.")
-  
         </textarea> <hr>
         <form id="myForm">
           <label for="new_value">Nowa wartosc dla MAX:</label><br>
@@ -44,6 +28,16 @@
       <pre id="output"></pre>
         
         <script>
+           var formData = $('#myForm').serialize(); // Pobierz dane formularza
+            var url = 'zmien_zmienna.php'; // Ścieżka do pliku PHP obsługującego żądanie
+
+            $.ajax({
+                  type: 'POST',
+                  url: url,
+                  data: formData,
+                  success: function(response) { 
+                      $('#code').val(response);
+                   }}); // Ładuje plik py od razu po włączeniu strony
           // Obsługa zdarzenia submit dla formularza
           $('#myForm').submit(function(event) {
               event.preventDefault(); // Zatrzymaj domyślne zachowanie formularza

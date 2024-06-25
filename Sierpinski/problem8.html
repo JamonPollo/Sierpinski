@@ -16,22 +16,6 @@
     <textarea rows="10" cols="80" disabled>theorem :: NUMBER01:1
       for n being positive Integer holds n+1 divides n^2 + 1 iff n = 1;</textarea> <hr>
     <textarea rows="10" cols="80" id="code" disabled>
-      import math
-
-      def check_numbers(a,m):
-      
-                  if a != 1 and m != 0:
-                      number1 = ((a**m - 1) // (a - 1))
-                      nwd1 = math.gcd(number1, a - 1)
-                      nwd2 = math.gcd(a - 1, m)
-                      if nwd1 != nwd2:
-                          print(f"Dla a = {a} i m = {m}, twierdzenie nie jest spełnione.")
-                      else:
-                          print(f"Dla a = {a} i m = {m}, twierdzenie jest spełnione: NWD (({a}^{m} - 1) / ({a} - 1), {a} - 1) = NWD ({a} - 1, {m}) = {nwd1}.")
-                  else:
-                      print(f"Dla a = {a} i m = {m}, wyrażenie nie jest zdefiniowane (dzielenie przez zero).")
-      
-      check_numbers(2,5)  # Sprawdza dla pierwszych 10 dodatnich liczb całkowitych a i m
         </textarea> <hr>
         <form id="myForm">
           <label for="new_value">Nowa wartosc dla MAX:</label><br>
@@ -43,6 +27,16 @@
       <pre id="output"></pre>
         
         <script>
+           var formData = $('#myForm').serialize(); // Pobierz dane formularza
+            var url = 'zmien_zmienna.php'; // Ścieżka do pliku PHP obsługującego żądanie
+
+            $.ajax({
+                  type: 'POST',
+                  url: url,
+                  data: formData,
+                  success: function(response) { 
+                      $('#code').val(response);
+                   }}); // Ładuje plik py od razu po włączeniu strony
           // Obsługa zdarzenia submit dla formularza
           $('#myForm').submit(function(event) {
               event.preventDefault(); // Zatrzymaj domyślne zachowanie formularza

@@ -16,12 +16,6 @@
     <textarea rows="10" cols="80" disabled>theorem :: NUMBER01:1
       for n being positive Integer holds n+1 divides n^2 + 1 iff n = 1;</textarea> <hr>
     <textarea rows="10" cols="80" id="code" disabled>
-      def oblicz_wyrazenie(n):
-      return (2**n + 2) // n
-  
-  for k in range(1, 11):  # dla n = 2^k, k od 1 do 10
-      n = 2**k
-      print(f"n = {n}, wartość wyrażenia = {oblicz_wyrazenie(n)}")
         </textarea> <hr>
         <form id="myForm">
           <label for="new_value">Nowa wartosc dla MAX:</label><br>
@@ -33,6 +27,16 @@
       <pre id="output"></pre>
         
         <script>
+           var formData = $('#myForm').serialize(); // Pobierz dane formularza
+            var url = 'zmien_zmienna.php'; // Ścieżka do pliku PHP obsługującego żądanie
+
+            $.ajax({
+                  type: 'POST',
+                  url: url,
+                  data: formData,
+                  success: function(response) { 
+                      $('#code').val(response);
+                   }}); // Ładuje plik py od razu po włączeniu strony
           // Obsługa zdarzenia submit dla formularza
           $('#myForm').submit(function(event) {
               event.preventDefault(); // Zatrzymaj domyślne zachowanie formularza

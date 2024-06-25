@@ -10,16 +10,3 @@ def check_number():
 
 # Sprawdza, czy (2^70 + 3^70) jest podzielne przez 13
 check_number()
-
-
-"""
-def check_number():
-    number = (2**70 + 3**70) / 13
-    if number.is_integer():
-        print(f"Wartość wyrażenia jest liczbą całkowitą: ",int(number))
-    else:
-        print(f"Wartość wyrażenia nie jest liczbą całkowitą:",int(number))
-
- # Sprawdza, czy (2^70 + 3^70) / 13 jest liczbą całkowitą
-check_number()
-"""

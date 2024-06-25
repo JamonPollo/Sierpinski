@@ -14,4 +14,3 @@ for n in range(1, MAXN):
     for i in range(1, MAX):  # dla n od 1 do MAX
         print(f"Dla i = {i}, x^(...{i}...)^x + 1 = {y + 1} = {n} * {(y+1)//n}")
         y = y**x
-

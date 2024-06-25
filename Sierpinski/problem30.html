@@ -18,25 +18,6 @@ For every positive integer a, find a composite number $n$ such that $(a^n - a)/n
     <textarea rows="10" cols="80" disabled>theorem :: NUMBER01:1
       for n being positive Integer holds n+1 divides n^2 + 1 iff n = 1;</textarea> <hr>
     <textarea rows="10" cols="80" id="code" disabled>
-      def zlozonosc(n):
-      if n <= 1:
-          return False
-      for i in range(2, int(n**0.5) + 1):
-          if n % i == 0:
-              return True
-      return False
-  
-  def znajdz_n(a):
-      n = a + 1
-      while True:
-          if zlozonosc(n) and (a ** n - a) % n == 0:
-              return n
-          n += 1
-  
-  a = 2  # Przykładowa wartość a
-  result = znajdz_n(a)
-  print(f"Dla a = {a}, liczba złożona n dla której (a^n - a)/n jest liczbą całkowitą wynosi: {result}")
-  
         </textarea> <hr>
         <form id="myForm">
           <label for="new_value">Nowa wartosc dla MAX:</label><br>
@@ -48,6 +29,16 @@ For every positive integer a, find a composite number $n$ such that $(a^n - a)/n
       <pre id="output"></pre>
         
         <script>
+             var formData = $('#myForm').serialize(); // Pobierz dane formularza
+            var url = 'zmien_zmienna.php'; // Ścieżka do pliku PHP obsługującego żądanie
+
+            $.ajax({
+                  type: 'POST',
+                  url: url,
+                  data: formData,
+                  success: function(response) { 
+                      $('#code').val(response);
+                   }}); // Ładuje plik py od razu po włączeniu strony
           // Obsługa zdarzenia submit dla formularza
           $('#myForm').submit(function(event) {
               event.preventDefault(); // Zatrzymaj domyślne zachowanie formularza

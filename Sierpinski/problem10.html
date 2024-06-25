@@ -16,25 +16,6 @@
     <textarea rows="10" cols="80" disabled>theorem :: NUMBER01:1
       for n being positive Integer holds n+1 divides n^2 + 1 iff n = 1;</textarea> <hr>
     <textarea rows="10" cols="80" id="code" disabled>
-      MAX = 1000
-      def is_divisible(n):
-          # funkcja sprawdzająca czy dana liczba n spełnia podane kryterium
-          sum_of_powers = 0
-          for i in range(1, n):
-              sum_of_powers += i**n
-          return sum_of_powers % n == 0
-      
-      def find_numbers(m):
-          # funkcja znajdująca wszystkie liczby całkowite n spełniające podane kryterium
-          results = []
-          # zakładamy, że szukamy wyników do MAX
-          for n in range(2, m):
-              if is_divisible(n):
-                  results.append(n)
-          return results
-      
-      # przykładowe wywołanie funkcji
-      print(find_numbers(MAX))
         </textarea> <hr>
         <form id="myForm">
           <label for="new_value">Nowa wartosc dla MAX:</label><br>
@@ -46,6 +27,16 @@
       <pre id="output"></pre>
         
         <script>
+           var formData = $('#myForm').serialize(); // Pobierz dane formularza
+            var url = 'zmien_zmienna.php'; // Ścieżka do pliku PHP obsługującego żądanie
+
+            $.ajax({
+                  type: 'POST',
+                  url: url,
+                  data: formData,
+                  success: function(response) { 
+                      $('#code').val(response);
+                   }}); // Ładuje plik py od razu po włączeniu strony
           // Obsługa zdarzenia submit dla formularza
           $('#myForm').submit(function(event) {
               event.preventDefault(); // Zatrzymaj domyślne zachowanie formularza

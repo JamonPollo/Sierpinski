@@ -13,4 +13,3 @@ def oblicz_wyrazenie(n):
 for i in range(1, 11):  # dla n od 1 do 10
     print(f"Dla n = {i}:")
     oblicz_wyrazenie(i)
-#dodac max jak poprzednio

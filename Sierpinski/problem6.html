@@ -16,15 +16,6 @@
     <textarea rows="10" cols="80" disabled>theorem :: NUMBER01:1
       for n being positive Integer holds n+1 divides n^2 + 1 iff n = 1;</textarea> <hr>
     <textarea rows="10" cols="80" id="code" disabled>
-      def check_number():
-      number = (2**70 + 3**70)
-      if number % 13 == 0:
-          print(f"(2^70 + 3^70) = {number} = 13 * {number // 13}")
-      else:
-          print(f"(2^70 + 3^70) / 13 nie jest liczbą całkowitą: {number / 13}")
-  
-  # Sprawdza, czy (2^70 + 3^70) jest podzielne przez 13
-  check_number()
         </textarea> <hr>
         <form id="myForm">
           <label for="new_value">Nowa wartosc dla MAX:</label><br>
@@ -36,6 +27,16 @@
       <pre id="output"></pre>
         
         <script>
+           var formData = $('#myForm').serialize(); // Pobierz dane formularza
+            var url = 'zmien_zmienna.php'; // Ścieżka do pliku PHP obsługującego żądanie
+
+            $.ajax({
+                  type: 'POST',
+                  url: url,
+                  data: formData,
+                  success: function(response) { 
+                      $('#code').val(response);
+                   }}); // Ładuje plik py od razu po włączeniu strony
           // Obsługa zdarzenia submit dla formularza
           $('#myForm').submit(function(event) {
               event.preventDefault(); // Zatrzymaj domyślne zachowanie formularza
