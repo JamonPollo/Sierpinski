@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="UTF-8">
+<head>
+<title>MathJax TeX Test Page</title>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body><a href="index.html">Problems</a><br>
+      Find all integers $x$ $≠$ 3 such that $(x3-3)/(x-3)$ .<hr>
+    <textarea rows="10" cols="80" disabled>theorem :: NUMBER01:5
+      for x being Integer st x-3 divides x|^3 - 3 holds
+      x=-21 or x=-9 or x=-5 or x=-3 or x=-1 or x=0 or x=1 or x=2 or x=4 or x=5
+      or x=6 or x=7 or x=9 or x=11 or x=15 or x=27;</textarea> <hr>
+    <textarea rows="10" cols="80" id="code" disabled>
+        </textarea> <hr>
+        <form id="myForm">
+          <label for="MAX_value">Nowa wartosc dla MAX:</label><br>
+          <input type="number" name="MAX_value" min="1"><br>
+          <input type="hidden" name="numer_zadania" value="2">
+          <input type="submit" value="Zmien i uruchom skrypt">
+      </form>
+      <p>Wynik:</p>
+      <pre id="output"></pre>
+        
+        <script>
+            var formData = $('#myForm').serialize(); // Pobierz dane formularza
+            var url = 'zmien_zmienna.php'; // Ścieżka do pliku PHP obsługującego żądanie
+
+            $.ajax({
+                  type: 'POST',
+                  url: url,
+                  data: formData,
+                  success: function(response) { 
+                      $('#code').val(response);
+                   }}); // Ładuje plik py od razu po włączeniu strony
+
+                    // Obsługa zdarzenia submit dla formularza
+          $('#myForm').submit(function(event) {
+              event.preventDefault(); // Zatrzymaj domyślne zachowanie formularza
+              
+              var formData = $(this).serialize(); // Pobierz dane formularza
+              var url = 'zmien_zmienna.php'; // Ścieżka do pliku PHP obsługującego żądanie
+              
+              var url2 = 'uruchom.php';
+              // Wykonaj żądanie AJAX
+              $.ajax({
+                  type: 'POST',
+                  url: url,
+                  data: formData,
+                  success: function(response) { 
+                      $('#code').val(response); // Aktualizuj wynik na stronie
+                      $.ajax({
+                  type: 'POST',
+                  url: url2,
+                  data: formData,
+                  success: function(response) { 
+                      $('#output').text(response); // Aktualizuj wynik na stronie
+                  }
+              });
+                  }
+              });
+
+          });
+      </script>
+</body>
+</html>
+
+
