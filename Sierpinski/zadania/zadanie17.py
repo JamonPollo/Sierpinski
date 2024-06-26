@@ -1,11 +1,11 @@
 import sys, io
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
 
-MAX = 10
+MAX = 4
 def oblicz_wyrazenie(a, n):
     return (a**n + 1) % n == 0
-
-a = 2
+VAR = 5
+a = VAR
 m = 0
 n = 0
 while m < MAX:

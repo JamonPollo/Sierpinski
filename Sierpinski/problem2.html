@@ -13,14 +13,16 @@
 </head>
 <body><a href="index.html">Problems</a><br>
       Find all integers $x$ $≠$ 3 such that $(x3-3)/(x-3)$ .<hr>
-    <textarea rows="10" cols="80" disabled>theorem :: NUMBER01:1
-      for n being positive Integer holds n+1 divides n^2 + 1 iff n = 1;</textarea> <hr>
+    <textarea rows="10" cols="80" disabled>theorem :: NUMBER01:5
+      for x being Integer st x-3 divides x|^3 - 3 holds
+      x=-21 or x=-9 or x=-5 or x=-3 or x=-1 or x=0 or x=1 or x=2 or x=4 or x=5
+      or x=6 or x=7 or x=9 or x=11 or x=15 or x=27;</textarea> <hr>
     <textarea rows="10" cols="80" id="code" disabled>
         </textarea> <hr>
         <form id="myForm">
-          <label for="new_value">Nowa wartosc dla MAX:</label><br>
-          <input type="number" id="new_value" name="new_value" min="1"><br>
-          <input type="hidden" id="numer_zadania" name="numer_zadania" value="2">
+          <label for="MAX_value">Nowa wartosc dla MAX:</label><br>
+          <input type="number" name="MAX_value" min="1"><br>
+          <input type="hidden" name="numer_zadania" value="2">
           <input type="submit" value="Zmien i uruchom skrypt">
       </form>
       <p>Wynik:</p>

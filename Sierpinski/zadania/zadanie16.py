@@ -1,7 +1,7 @@
 import sys, io
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
 
-MAX = 10
+MAX = 4
 for i in range(1,MAX+1):
     print(f"Dla n = 3^{i} = {3**i} : 2^n + 1 = {2**(3**i)+1} = n * {(2**(3**i) + 1)//(3**i)} ")
 

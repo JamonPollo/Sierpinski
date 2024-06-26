@@ -9,8 +9,8 @@ def znajdz_x_y(n):
         return x, y
     else:
         return None
-
-n = 5  # Wybieramy dowolną dodatnią liczbę całkowitą
+VAR = 8
+n = VAR   # Wybieramy dowolną dodatnią liczbę całkowitą
 result = znajdz_x_y(n)
 if result is not None:
     print(f"Dla n = {n}, znalezione x i y to: x = {result[0]}, y = {result[1]}")

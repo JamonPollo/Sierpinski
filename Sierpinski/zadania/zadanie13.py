@@ -20,7 +20,7 @@ def is_prime(n, k=5):  # liczba iteracji Miller-Rabin test
         else: return False
     return True
 
-MAX = 5
+MAX = 4
 MAXX = 10
 MAXN = 8
 

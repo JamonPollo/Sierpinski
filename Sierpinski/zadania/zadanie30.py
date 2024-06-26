@@ -16,6 +16,7 @@ def znajdz_n(a):
             return n
         n += 1
 
-a = 2  # Przykładowa wartość a
+VAR = 55
+a = VAR
 result = znajdz_n(a)
 print(f"Dla a = {a}, liczba złożona n dla której (a^n - a)/n jest liczbą całkowitą wynosi: {result}")

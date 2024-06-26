@@ -1,7 +1,7 @@
 import sys, io
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
 
-MIN = 1000
+MAX = 4
 def generator(k):
     n = 1
     licznik = 0
@@ -12,5 +12,5 @@ def generator(k):
             licznik += 1
         n += 1
 
-# Generuje pierwsze MIN liczb spełniających warunek
-generator(MIN)
+# Generuje pierwsze MAX liczb spełniających warunek
+generator(MAX)

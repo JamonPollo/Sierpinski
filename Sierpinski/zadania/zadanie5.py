@@ -1,5 +1,6 @@
 import sys, io
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
+
 sys.set_int_max_str_digits(10000)
 def check_numbers(n):
 

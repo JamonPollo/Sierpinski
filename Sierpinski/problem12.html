@@ -18,9 +18,10 @@
     <textarea rows="10" cols="80" id="code" disabled>
         </textarea> <hr>
         <form id="myForm">
-          <label for="new_value">Nowa wartosc dla MAX:</label><br>
-          <input type="number" id="new_value" name="new_value" min="1"><br>
-          <input type="hidden" id="numer_zadania" name="numer_zadania" value="12">
+          <label for="MAX_value">Nowa wartosc dla MAX:</label><br>
+          <input type="number" name="MAX_value" min="1"><br>
+          <input type="number" name="MAXN_value" min="1"><br>
+          <input type="hidden" name="numer_zadania" value="12">
           <input type="submit" value="Zmien i uruchom skrypt">
       </form>
       <p>Wynik:</p>
@@ -37,6 +38,8 @@
                   success: function(response) { 
                       $('#code').val(response);
                    }}); // Ładuje plik py od razu po włączeniu strony
+
+
           // Obsługa zdarzenia submit dla formularza
           $('#myForm').submit(function(event) {
               event.preventDefault(); // Zatrzymaj domyślne zachowanie formularza

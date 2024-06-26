@@ -18,6 +18,12 @@ function updateVariable()
         $MAXN_value = $_POST['MAXN_value'];
     }else $MAXN_value =''; 
 
+    if(isset($_POST['VAR_value']))
+    {
+        $VAR_value = $_POST['VAR_value'];
+    }else $VAR_value =''; 
+
+
     $file_path = 'zadania/zadanie'.$_POST['numer_zadania'].'.py';
 
     // Odczytaj zawartość pliku
@@ -46,9 +52,19 @@ function updateVariable()
         }
     }}
 
+    if (!empty($VAR_value)){
+        foreach ($file_data as &$line) {
+            if (strpos($line, 'VAR = ') !== false) {
+                $line = "VAR = {$VAR_value}\n";
+            }
+    
+        } }
+
     // Zapisz nowe dane do pliku
     file_put_contents($file_path, implode('', $file_data));
     return file_get_contents($file_path);
+
+    
 }
 
 // Uruchom skrypt Pythona i zwróć wynik

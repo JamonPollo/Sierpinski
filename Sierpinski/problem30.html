@@ -15,14 +15,38 @@
 
 For every positive integer a, find a composite number $n$ such that $(a^n - a)/n$.
 <hr>
-    <textarea rows="10" cols="80" disabled>theorem :: NUMBER01:1
-      for n being positive Integer holds n+1 divides n^2 + 1 iff n = 1;</textarea> <hr>
+    <textarea rows="10" cols="80" disabled>theorem :: NUMBER02:45
+        for a being non zero Nat
+         ex n being non prime Nat st n divides a|^n-a;
+      
+      theorem :: NUMBER02:46
+        not 7 divides a implies
+        ex k st a^2 = 7*k+1 or a^2 = 7*k+2 or a^2 = 7*k+4;
+      
+      theorem :: NUMBER02:47
+        ex k st a^2 = 7*k or a^2 = 7*k+1 or a^2 = 7*k+2 or a^2 = 7*k+4;
+      
+      theorem :: NUMBER02:48
+        not 7 divides a implies a^2 mod 7 = 1 or a^2 mod 7 = 2 or a^2 mod 7 = 4;
+      
+      theorem :: NUMBER02:49
+        a^2 mod 7 = 0 or a^2 mod 7 = 1 or a^2 mod 7 = 2 or a^2 mod 7 = 4;
+      
+      theorem :: NUMBER02:50
+        (ex k st a = 7*k+1 or a = 7*k+2 or a = 7*k+4) &
+        (ex k st b = 7*k+1 or b = 7*k+2 or b = 7*k+4) implies
+        ex k st a+b = 7*k+1 or ... or a+b = 7*k+6;
+      
+      theorem :: NUMBER02:51
+        (a mod 7 = 1 or a mod 7 = 2 or a mod 7 = 4) &
+        (b mod 7 = 1 or b mod 7 = 2 or b mod 7 = 4) implies
+        a+b mod 7 = 1 or ... or a+b mod 7 = 6;</textarea> <hr>
     <textarea rows="10" cols="80" id="code" disabled>
         </textarea> <hr>
         <form id="myForm">
-          <label for="new_value">Nowa wartosc dla MAX:</label><br>
-          <input type="number" id="new_value" name="new_value" min="1"><br>
-          <input type="hidden" id="numer_zadania" name="numer_zadania" value="30">
+          <label for="VAR_value">Nowa wartosc dla VAR:</label><br>
+          <input type="number" name="VAR_value" min="1"><br>
+          <input type="hidden" name="numer_zadania" value="30">
           <input type="submit" value="Zmien i uruchom skrypt">
       </form>
       <p>Wynik:</p>

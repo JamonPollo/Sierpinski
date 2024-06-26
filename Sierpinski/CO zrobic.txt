@@ -18,3 +18,8 @@ var formData = $('#myForm').serialize(); // Pobierz dane formularza
                    }}); // Aktualizuj wynik na stronie
 6.W plikach py trzeba przepatrzec spacje, oraz w html dodac okienka formularza . Pozmieniac new_value na MAX_value i jak potrzebne jaksies dodatkowe maxy to pododawac.
 wywalic z texarea i dodac skrypt jak w prob1
+
+7.Prob3 MIN?, Prob4,5,6,7,8,9,11,14,15,18,19,21,22,23,26,27,28,29 samo uruchom skrypt, Czy w 17 wstawic okienko pod a,m,n, 
+20.py nie dziala,Czy w 24 wstawic n do okienka, W prob25 czy limit wstawic jako okienko, Czy w 30 wstawic okienko pod a
+
+prob 17 i 30 zrobic okienka VAR pod a tak jak prob24 

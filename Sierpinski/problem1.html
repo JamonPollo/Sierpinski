@@ -14,7 +14,19 @@
 <body><a href="index.html">Problems</a><br>
     Find all positive integers $n$ such that $n^2 + 1$ is divisible by $n + 1$. <hr>
     <textarea rows="10" cols="80" disabled>theorem :: NUMBER01:1
-      for n being positive Integer holds n+1 divides n^2 + 1 iff n = 1;</textarea> <hr>
+      for n being positive Integer holds n+1 divides n^2 + 1 iff n = 1;
+    
+    theorem :: NUMBER01:2
+      for i,n being Real st |.i.|=n holds i=n or i=-n;
+    
+    theorem :: NUMBER01:3
+      for n being natural number st n divides 24 holds
+        n=1 or n=2 or n=3 or n=4 or n=6 or n=8 or n=12 or n=24;
+    
+    theorem :: NUMBER01:4
+      for t being Integer st t divides 24 holds
+      t=-1 or t=1 or t=-2 or t=2 or t=-3 or t=3 or t=-4 or t=4 or t=-6 or t=6
+      or t=-8 or t=8 or t=-12 or t=12 or t=-24 or t=24;</textarea> <hr>
     <textarea rows="10" cols="80" id="code" disabled>
         </textarea> <hr>
         <form id="myForm">
