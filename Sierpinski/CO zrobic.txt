@@ -23,3 +23,10 @@ wywalic z texarea i dodac skrypt jak w prob1
 20.py nie dziala,Czy w 24 wstawic n do okienka, W prob25 czy limit wstawic jako okienko, Czy w 30 wstawic okienko pod a
 
 prob 17 i 30 zrobic okienka VAR pod a tak jak prob24 
+
+
+taby dac w prob mizarowych, i dodac w kazdym problemie html odnosnik od 1 do 30, ustawic rows i cols(wszystko na 100) dla kazdego prob oddzielnie,
+dodac ść w wartosc w opisnie i ń w zmień
+
+1.spis tresci jest wstep i napisac ze chodzi o te twierdzenia,2
+	rozdzial: uzyte technolige xamp itp

@@ -10,5 +10,5 @@ def znajdz_n(MAX):
             result.append(n)
     return result
 
-MAX = 11
+MAX = 7
 print(znajdz_n(MAX))

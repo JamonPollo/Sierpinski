@@ -11,11 +11,12 @@
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
-<body><a href="index.html">Problems</a><br>
-  Prove that for positive integer $m$ and $a > 1$ we have $((a^m - 1)/(a-1), a-1)=(a-1,m)$  <hr>
-    <textarea rows="10" cols="80" disabled>theorem :: NUMBER01:1
-      for n being positive Integer holds n+1 divides n^2 + 1 iff n = 1;</textarea> <hr>
-    <textarea rows="10" cols="80" id="code" disabled>
+<body><a href="index.html">Problems</a><br><a href="problem1.html">Problem1 </a><a href="problem2.html">Problem2 </a><a href="problem3.html">Problem3 </a><a href="problem4.html">Problem4 </a><a href="problem5.html">Problem5 </a><a href="problem6.html">Problem6 </a><a href="problem7.html">Problem7 </a><a href="problem8.html">Problem8 </a><a href="problem9.html">Problem9 </a><a href="problem10.html">Problem10 </a><a href="problem11.html">Problem11 </a><a href="problem12.html">Problem12 </a><a href="problem13.html">Problem13 </a><a href="problem14.html">Problem14 </a> <a href="problem15.html">Problem15 </a><a href="problem16.html">Problem16 </a><a href="problem17.html">Problem17 </a><a href="problem18.html">Problem18 </a><a href="problem19.html">Problem19 </a><a href="problem20.html">Problem20 </a><a href="problem21.html">Problem21 </a><a href="problem22.html">Problem22 </a><a href="problem23.html">Problem23 </a><a href="problem24.html">Problem24 </a><a href="problem25.html">Problem25 </a><a href="problem26.html">Problem26 </a><a href="problem27.html">Problem27 </a><a href="problem28.html">Problem28 </a><a href="problem29.html">Problem29 </a><a href="problem30.html">Problem30 </a><br>
+  8. Prove that for positive integer $m$ and $a > 1$ we have $(\frac {a^m - 1}{a-1}, a-1)=(a-1,m)$.  <hr>
+    <textarea rows="10" cols="80" disabled>theorem :: NUMBER01:13
+      for m being positive Integer, a being Nat st a > 1
+      holds ((a|^m - 1) div (a-1)) gcd (a-1) = (a-1) gcd m;</textarea> <hr>
+    <textarea rows="25" cols="80" id="code" disabled>
         </textarea> <hr>
         <form id="myForm">
           <input type="hidden" name="numer_zadania" value="8">

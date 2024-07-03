@@ -9,7 +9,7 @@ def znajdz_x_y(n):
         return x, y
     else:
         return None
-VAR = 8
+VAR = 7
 n = VAR   # Wybieramy dowolną dodatnią liczbę całkowitą
 result = znajdz_x_y(n)
 if result is not None:
