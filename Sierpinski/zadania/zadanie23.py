@@ -7,7 +7,7 @@ def znajdz_n(p, limit):
         if (n * 4 + 1) % p == 0:  # Sprawdzamy, czy n*4 + 1 jest podzielne przez p
             result.append(n)
     return result
-VAR = 4
+VAR = 7
 p = VAR  # Wybieramy nieparzystą liczbę pierwszą
-MAX = 30
+MAX = 9
 print(znajdz_n(p, MAX))

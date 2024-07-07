@@ -3,8 +3,8 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
 
 def szukaj_x(n):
     return 2*n - 1
-MAX = 3
-MAXN = 5
+MAX = 5
+MAXN = 7
 
 for n in range(1, MAXN):
     x = szukaj_x(n)

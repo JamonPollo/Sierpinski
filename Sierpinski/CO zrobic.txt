@@ -30,3 +30,9 @@ dodac ść w wartosc w opisnie i ń w zmień
 
 1.spis tresci jest wstep i napisac ze chodzi o te twierdzenia,2
 	rozdzial: uzyte technolige xamp itp
+
+
+We wstepie
+
+Opisanie aplikacji, co sie zmienia, podstawianie maxow, Alternatywna forma 
+strona startowa, zdjecie sierpisnkiego, jakis opis zeby to wygladalo aby dac na pierwsza sekcje do rozdzialu 2
