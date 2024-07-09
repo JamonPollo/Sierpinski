@@ -1,7 +1,7 @@
 import sys, io
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
 
-MAX = 66
+MAX = 6
 def is_divisible(n):
     # funkcja sprawdzająca czy dana liczba n spełnia podane kryterium
     sum_of_powers = 0

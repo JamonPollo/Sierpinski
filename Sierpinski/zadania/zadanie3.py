@@ -1,7 +1,7 @@
 import sys, io
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
 
-MAX = 4
+MAX = 6
 def generator(k):
     n = 1
     licznik = 0

@@ -1,10 +1,13 @@
-import sys, io
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
+import sys,io
+sys.stdout=io.TextIOWrapper(sys.stdout.buffer,encoding="utf-8")
 
-def check_number(n):
-
-        number = (3**(3*n+3) - 26*n - 27)
+def check_number(x):
+    for n in range(x+1):
+        number=(3**(3*n+3)-26*n-27)
         if number % 169 == 0:
-            print(f"Dla n = {n}, wartość wyrażenia jest liczbą całkowitą: {number} = 169 * {number // 169}")
+            print(f"Dla n={n}, wartość wyrażenia 3^(3*n+3)-26*n-27 jest liczbą całkowitą: {number} = 169 * {number//169}")
 
-check_number(0)
+MAX = 13
+check_number(MAX)
+
+
